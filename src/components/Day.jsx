@@ -1,7 +1,7 @@
 import AddForm from "./AddForm";
 import { useState } from "react";
 
-function Day({ dayNum }) {
+function Day({ day, year, month, daysInMonth }) {
   const [showAddForm, setShowAddForm] = useState(false);
 
   const handleMouse = (props) => {
@@ -10,15 +10,15 @@ function Day({ dayNum }) {
 
   return (
     <>
-      {dayNum < 1 || dayNum > 31 ? (
-        <td key={dayNum}></td>
+      {day < 1 || day > daysInMonth ? (
+        <td key={day}>{}</td>
       ) : (
         <td
-          key={dayNum}
+          key={day}
           onMouseEnter={() => handleMouse(true)}
           onMouseLeave={() => handleMouse(false)}
         >
-          {dayNum} {showAddForm && <AddForm />}
+          {day} {showAddForm && <AddForm day={day} year={year} month={month} />}
         </td>
       )}
     </>

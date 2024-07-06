@@ -1,35 +1,41 @@
-import "./Calendar.css";
-import Day from "./Day";
+import Month from "./Month";
+import { useState } from "react";
 
 function Calendar() {
-  let start = -4;
-  let month = [];
-  let curr = start;
+  const [startOnSun, setStartOnSun] = useState(true);
+  const [date, setDate] = useState(new Date());
 
-  for (let week = 0; week < 5; week++) {
-    let days = [];
-    for (let day = 0; day < 7; day++) {
-      days.push(<Day dayNum={curr} key={curr} />);
-      curr++;
-    }
-    month.push(<tr key={week}>{days}</tr>);
-  }
+  const changeStartDay = (props) => {
+    setStartOnSun(props);
+  };
+
+  const jumpToday = () => {
+    setDate(new Date());
+  };
+
+  const jumpMonth = (offset) => {
+    const newDate = new Date(date.getFullYear(), date.getMonth() + offset, 1);
+    console.log(newDate);
+    setDate(newDate);
+  };
+
+  console.log(date);
 
   return (
-    <table>
-      <tbody>
-        <tr>
-          <th>Monday</th>
-          <th>Tuesday</th>
-          <th>Wednesday</th>
-          <th>Thursday</th>
-          <th>Friday</th>
-          <th>Saturday</th>
-          <th>Sunday</th>
-        </tr>
-        {month}
-      </tbody>
-    </table>
+    <div>
+      <button onClick={() => changeStartDay(false)}>
+        Start week on Monday
+      </button>
+      <button onClick={() => changeStartDay(true)}>Start week on Sunday</button>
+      <button onClick={() => jumpToday()}>Today</button>
+      <button onClick={() => jumpMonth(-1)}>Prev month</button>
+      <button onClick={() => jumpMonth(1)}>Next month</button>
+      <Month
+        year={date.getFullYear()}
+        month={date.getMonth()}
+        startOnSun={startOnSun}
+      />
+    </div>
   );
 }
 
