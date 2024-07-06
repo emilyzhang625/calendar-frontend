@@ -1,9 +1,9 @@
-import "./Calendar.css";
+import "./Month.css";
 import Day from "./Day";
 
-function Month({ dateObj, startOnSun }) {
-  const year = dateObj.getFullYear();
-  const month = dateObj.getMonth();
+function Month({ date, startOnSun }) {
+  const year = date.getFullYear();
+  const month = date.getMonth();
   const daysInMonth = new Date(year, month + 1, 0).getDate();
   const begDay = new Date(year, month, 1).getDay();
 

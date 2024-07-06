@@ -1,6 +1,6 @@
-import { useState } from "react";
 import Month from "./components/Month";
 import AddForm from "./components/AddForm";
+import Calendar from "./components/Calendar";
 import List from "./components/List";
 import "./App.css";
 
@@ -11,7 +11,7 @@ function App() {
       <div className="title">Agenda</div>
       <AddForm />
       {/* <List /> */}
-      <Month dateObj={now} startOnSun={true} />
+      <Calendar />
     </div>
   );
 }
