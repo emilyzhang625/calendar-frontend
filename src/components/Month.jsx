@@ -38,7 +38,7 @@ function Month({ year, month, startOnSun }) {
     daysArr = [];
   }
 
-  if (offset >= daysInMonth) {
+  if (offset <= daysInMonth) {
     for (let day = 0; day < 7; day++) {
       daysArr.push(
         <Day

@@ -2,7 +2,7 @@ import itemService from "../items";
 import { useEffect } from "react";
 import { useState } from "react";
 
-function List() {
+function List({ year, month, day }) {
   const [items, setItems] = useState(null);
   useEffect(() => {
     itemService.getItems().then((initialItems) => {
@@ -13,6 +13,10 @@ function List() {
   console.log(items);
   if (!items) return null;
 
-  return items.map((item) => <div key={item.id}>{item.name}</div>);
+  const filteredItems = items.filter(
+    (item) => item.year === year && item.month === month && item.day === day
+  );
+
+  return filteredItems.map((item) => <div key={item.id}>{item.name}</div>);
 }
 export default List;

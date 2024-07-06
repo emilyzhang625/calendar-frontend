@@ -1,0 +1,15 @@
+.header {
+	display: flex;
+	justify-content: space-between;  /* Place items on far ends */
+	align-items: center;             /* Center items vertically */
+	margin-top: 20px;
+  }
+  
+  .button-row {
+	display: flex;
+  }
+  
+  .other-start {
+	display: inline
+  }
+  

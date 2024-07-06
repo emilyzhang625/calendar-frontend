@@ -1,5 +1,6 @@
 import AddForm from "./AddForm";
 import { useState } from "react";
+import List from "./List";
 
 function Day({ day, year, month, daysInMonth }) {
   const [showAddForm, setShowAddForm] = useState(false);
@@ -18,7 +19,8 @@ function Day({ day, year, month, daysInMonth }) {
           onMouseEnter={() => handleMouse(true)}
           onMouseLeave={() => handleMouse(false)}
         >
-          {day} {showAddForm && <AddForm day={day} year={year} month={month} />}
+          {day} {showAddForm && <AddForm day={day} year={year} month={month} />}{" "}
+          <List year={year} month={month} day={day} />
         </td>
       )}
     </>
