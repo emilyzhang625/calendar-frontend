@@ -1,7 +1,7 @@
 import itemService from "../items";
 import { useState } from "react";
 
-function Test() {
+function AddForm() {
   const [showAddButton, setShowAddButton] = useState(true);
   const [newItem, setNewItem] = useState({ name: "" });
 
@@ -40,4 +40,4 @@ function Test() {
   );
 }
 
-export default Test;
+export default AddForm;

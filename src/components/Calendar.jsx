@@ -1,20 +1,18 @@
 import "./Calendar.css";
-import Week from "./Week";
+import Day from "./Day";
 
-function Calendar({ items, setItems, newItem, setNewItem }) {
-  const startNum = -4;
-  const weeks = [];
-  for (let i = 0; i < 6; i++) {
-    weeks.push(
-      <Week
-        key={startNum + 7 * i}
-        startNum={startNum + 7 * i}
-        items={items}
-        setItems={setItems}
-        newItem={newItem}
-        setNewItem={setNewItem}
-      />
-    );
+function Calendar() {
+  let start = -4;
+  let month = [];
+  let curr = start;
+
+  for (let week = 0; week < 5; week++) {
+    let days = [];
+    for (let day = 0; day < 7; day++) {
+      days.push(<Day dayNum={curr} key={curr} />);
+      curr++;
+    }
+    month.push(<tr key={week}>{days}</tr>);
   }
 
   return (
@@ -29,7 +27,7 @@ function Calendar({ items, setItems, newItem, setNewItem }) {
           <th>Saturday</th>
           <th>Sunday</th>
         </tr>
-        {weeks}
+        {month}
       </tbody>
     </table>
   );

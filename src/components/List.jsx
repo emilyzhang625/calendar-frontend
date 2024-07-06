@@ -1,21 +1,18 @@
-function List({ items, setItems }) {
-  const deleteItem = (name, time) => {
-    const temp = items.filter(
-      (item) => !(item.name === name && item.time === time)
-    );
-    setItems(temp);
-    console.log(temp);
-  };
+import itemService from "../items";
+import { useEffect } from "react";
+import { useState } from "react";
 
-  return (
-    <div>
-      {items.map((item, index) => (
-        <div key={index}>
-          {item.time} {item.name}{" "}
-          <button onClick={() => deleteItem(item.name, item.time)}>x</button>
-        </div>
-      ))}
-    </div>
-  );
+function List() {
+  const [items, setItems] = useState(null);
+  useEffect(() => {
+    itemService.getItems().then((initialItems) => {
+      setItems(initialItems);
+    });
+  }, []);
+
+  console.log(items);
+  if (!items) return null;
+
+  return items.map((item) => <div key={item.id}>{item.name}</div>);
 }
 export default List;
