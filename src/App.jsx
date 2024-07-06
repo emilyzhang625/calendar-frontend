@@ -1,16 +1,17 @@
 import { useState } from "react";
-import Calendar from "./components/Calendar";
+import Month from "./components/Month";
 import AddForm from "./components/AddForm";
 import List from "./components/List";
 import "./App.css";
 
 function App() {
+  const now = new Date(2024, 5, 1);
   return (
     <div className="container">
       <div className="title">Agenda</div>
       <AddForm />
-      <List />
-      <Calendar />
+      {/* <List /> */}
+      <Month dateObj={now} startOnSun={true} />
     </div>
   );
 }
