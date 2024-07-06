@@ -14,7 +14,7 @@ function List({ year, month, day }) {
   if (!items) return null;
 
   const filteredItems = items.filter(
-    (item) => item.year === year && item.month === month && item.day === day
+    (item) => item.year === year && item.month === month + 1 && item.day === day
   );
 
   return filteredItems.map((item) => <div key={item.id}>{item.name}</div>);
