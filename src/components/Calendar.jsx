@@ -13,9 +13,13 @@ function Calendar() {
     setDate(new Date());
   };
 
-  const jumpMonth = ({ offset }) => {
-    setDate(date.getFullYear(), date.getMonth() + { offset }, 1);
+  const jumpMonth = (offset) => {
+    const newDate = new Date(date.getFullYear(), date.getMonth() + offset, 1);
+    console.log(newDate);
+    setDate(newDate);
   };
+
+  console.log(date);
 
   return (
     <div>
@@ -23,10 +27,14 @@ function Calendar() {
         Start week on Monday
       </button>
       <button onClick={() => changeStartDay(true)}>Start week on Sunday</button>
-      <button onClick={jumpToday()}>Today</button>
+      <button onClick={() => jumpToday()}>Today</button>
       <button onClick={() => jumpMonth(-1)}>Prev month</button>
       <button onClick={() => jumpMonth(1)}>Next month</button>
-      <Month dateObj={date} startOnSun={startOnSun} />
+      <Month
+        year={date.getFullYear()}
+        month={date.getMonth()}
+        startOnSun={startOnSun}
+      />
     </div>
   );
 }

@@ -1,11 +1,15 @@
 import "./Month.css";
 import Day from "./Day";
 
-function Month({ date, startOnSun }) {
-  const year = date.getFullYear();
-  const month = date.getMonth();
+function Month({ year, month, startOnSun }) {
+  console.log(year);
+  console.log(month);
+
   const daysInMonth = new Date(year, month + 1, 0).getDate();
   const begDay = new Date(year, month, 1).getDay();
+
+  console.log(daysInMonth);
+  console.log(begDay);
 
   let offset = 1;
 
@@ -25,7 +29,13 @@ function Month({ date, startOnSun }) {
     let daysArr = [];
     for (let day = 0; day < 7; day++) {
       daysArr.push(
-        <Day dayNum={offset} key={offset} daysInMonth={daysInMonth} />
+        <Day
+          year={year}
+          month={month}
+          day={offset}
+          key={offset}
+          daysInMonth={daysInMonth}
+        />
       );
       offset++;
       if (offset >= daysInMonth) {
