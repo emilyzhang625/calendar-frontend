@@ -2,10 +2,7 @@ import itemService from "../items";
 
 function Test() {
   const handleClick = () => {
-    const newItem = {
-      name: "testing",
-      id: 4,
-    };
+    const newItem = { name: "testing" };
     console.log(newItem);
     itemService.addItem(newItem);
   };
