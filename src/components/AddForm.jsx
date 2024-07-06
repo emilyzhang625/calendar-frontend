@@ -14,11 +14,11 @@ function AddForm({ year, month, day }) {
     event.preventDefault;
     console.log(newItem);
     itemService.addItem(newItem);
-    setNewItem({ name: "", date: date });
+    setNewItem({ ...newItem, name: "" });
   };
 
   const handleChange = (event) => {
-    setNewItem({ name: event.target.value });
+    setNewItem({ ...newItem, name: event.target.value });
   };
 
   const handleClick = (props) => {

@@ -2,14 +2,8 @@ import "./Month.css";
 import Day from "./Day";
 
 function Month({ year, month, startOnSun }) {
-  console.log(year);
-  console.log(month);
-
   const daysInMonth = new Date(year, month + 1, 0).getDate();
   const begDay = new Date(year, month, 1).getDay();
-
-  console.log(daysInMonth);
-  console.log(begDay);
 
   let offset = 1;
 
@@ -24,26 +18,40 @@ function Month({ year, month, startOnSun }) {
   }
 
   let monthArr = [];
+  let daysArr = [];
 
+  console.log(monthArr);
   for (let week = 0; week < 5; week++) {
-    let daysArr = [];
     for (let day = 0; day < 7; day++) {
       daysArr.push(
         <Day
-          year={year}
-          month={month}
           day={offset}
           key={offset}
+          year={year}
+          month={month}
           daysInMonth={daysInMonth}
         />
       );
       offset++;
-      if (offset >= daysInMonth) {
-        day--;
-      }
     }
-
     monthArr.push(<tr key={week}>{daysArr}</tr>);
+    daysArr = [];
+  }
+
+  if (offset >= daysInMonth) {
+    for (let day = 0; day < 7; day++) {
+      daysArr.push(
+        <Day
+          day={offset}
+          key={offset}
+          year={year}
+          month={month}
+          daysInMonth={daysInMonth}
+        />
+      );
+      offset++;
+    }
+    monthArr.push(<tr key={5}>{daysArr}</tr>);
   }
 
   let headerArr = [
