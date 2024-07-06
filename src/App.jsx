@@ -2,6 +2,7 @@ import { useState } from "react";
 import List from "./components/List";
 import Calendar from "./components/Calendar";
 import Add from "./components/Add";
+import Test from "./components/Test";
 import "./App.css";
 
 function App() {
@@ -11,6 +12,7 @@ function App() {
   return (
     <div className="container">
       <div className="title">Agenda</div>
+      <Test />
       <Add
         items={items}
         setItems={setItems}

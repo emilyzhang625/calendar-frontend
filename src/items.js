@@ -8,6 +8,7 @@ const getItems = () => {
 
 const addItem = (newItem) => {
 	const request = axios.post(baseUrl, newItem)
+	console.log(newItem);
 	return request.then(response => response.data)
 }
 
