@@ -27,13 +27,6 @@ function Month({ year, month, startOnSun }) {
     });
   }, []);
 
-  console.log("last item", items[items.length - 1]);
-
-  if (!items) return null;
-
-  console.log(items);
-  console.log(Array.isArray(items));
-
   let offset = 1;
 
   if (startOnSun) {
@@ -49,7 +42,6 @@ function Month({ year, month, startOnSun }) {
   let monthArr = [];
   let daysArr = [];
 
-  console.log(monthArr);
   for (let week = 0; week < 5; week++) {
     for (let day = 0; day < 7; day++) {
       daysArr.push(

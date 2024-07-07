@@ -14,16 +14,8 @@ function AddForm({ year, month, day, setItems, items }) {
       day: day,
     };
 
-    console.log("addForm newItem", newItem);
-
     setItems([...items, newItem]);
-
-    // if (nameInput.current) {
-    //   nameInput.current.value = ""; // Clear the input field
-    // }
   };
-
-  console.log(items);
 
   const handleAddClick = (props) => {
     setShowAddButton(props);
