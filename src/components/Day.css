@@ -1,0 +1,25 @@
+.add-form {
+	display: none;
+	position: absolute;
+}
+
+.table-cell:hover .add-form {
+	display: block;
+  }
+
+  .table-cell {
+	position:relative;
+	height: 30px;
+	
+
+  }
+  .table-cell:hover {
+height: 100px
+  }
+
+  .day-num {
+	position: absolute;
+	top:10px;
+	left: 10px;
+	margin-bottom:15px
+  }

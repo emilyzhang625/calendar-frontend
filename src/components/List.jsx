@@ -1,6 +1,3 @@
-import itemService from "../items";
-import { useEffect } from "react";
-import { useState } from "react";
 import "./List.css";
 
 function List({ year, month, day, items }) {

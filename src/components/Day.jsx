@@ -1,26 +1,16 @@
 import AddForm from "./AddForm";
-import { useState } from "react";
 import List from "./List";
+import "./Day.css";
 
 function Day({ day, year, month, daysInMonth, items, setItems }) {
-  const [showAddForm, setShowAddForm] = useState(false);
-
-  const handleMouse = (props) => {
-    setShowAddForm(props);
-  };
-
   return (
     <>
       {day < 1 || day > daysInMonth ? (
         <td key={day}>{}</td>
       ) : (
-        <td
-          key={day}
-          onMouseEnter={() => handleMouse(true)}
-          onMouseLeave={() => handleMouse(false)}
-        >
-          {day}{" "}
-          {showAddForm && (
+        <td key={day} className="table-cell">
+          <div className="day-num">{day}</div>
+          <div className="add-form">
             <AddForm
               day={day}
               year={year}
@@ -28,7 +18,7 @@ function Day({ day, year, month, daysInMonth, items, setItems }) {
               setItems={setItems}
               items={items}
             />
-          )}
+          </div>
           <List year={year} month={month} day={day} items={items} />
         </td>
       )}
