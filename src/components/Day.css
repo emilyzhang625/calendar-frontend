@@ -1,25 +1,31 @@
+.table-cell {
+	position: relative;
+	height:50px
+}
+  
 .add-form {
 	display: none;
 	position: absolute;
+	top: 0;
+	left: 0;
+	padding: 5px;
 }
 
 .table-cell:hover .add-form {
 	display: block;
-  }
+}
 
-  .table-cell {
-	position:relative;
-	height: 30px;
-	
-
-  }
-  .table-cell:hover {
-height: 100px
-  }
-
-  .day-num {
+.day-num,.curr-day {
 	position: absolute;
-	top:10px;
-	left: 10px;
-	margin-bottom:15px
-  }
+	top: 0;
+	right: 0;
+	padding: 5px;
+}
+
+.curr-day {
+	background-color: pink;
+}
+
+.list {
+	margin-top:50px
+}

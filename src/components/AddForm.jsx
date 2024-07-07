@@ -1,9 +1,9 @@
 import { useState } from "react";
 import { useRef } from "react";
+import "./AddForm.css";
 
 function AddForm({ year, month, day, setItems, items }) {
   const [showAddButton, setShowAddButton] = useState(true);
-  const [clickedCancel, setClickedCancel] = useState(false);
   const nameInput = useRef(null);
 
   const handleSubmit = () => {
@@ -14,6 +14,11 @@ function AddForm({ year, month, day, setItems, items }) {
       day: day,
     };
 
+    if (nameInput.current.value) {
+      nameInput.current.value = "";
+    }
+
+    setShowAddButton(true);
     setItems([...items, newItem]);
   };
 
@@ -21,25 +26,24 @@ function AddForm({ year, month, day, setItems, items }) {
     setShowAddButton(props);
   };
 
-  const handleCancelClick = () => {
-    setClickedCancel(true);
-    handleAddClick(false);
-  };
-
   return (
     <div>
-      {showAddButton && !clickedCancel && (
+      {showAddButton && (
         <button onClick={() => handleAddClick(false)}>+</button>
       )}
-      {!showAddButton && !clickedCancel && (
-        <div>
-          <input
-            type="text"
-            placeholder="Name of event"
-            ref={nameInput}
-          ></input>
-          <button onClick={handleSubmit}>Add item</button>
-          <button onClick={handleCancelClick}>Cancel</button>
+      {!showAddButton && (
+        <div className="form">
+          <div className="input-container">
+            <input
+              type="text"
+              placeholder="Name of event"
+              ref={nameInput}
+            ></input>
+          </div>
+          <div className="button-container">
+            <button onClick={handleSubmit}>Add</button>
+            <button onClick={() => handleAddClick(true)}>Cancel</button>
+          </div>
         </div>
       )}
     </div>
