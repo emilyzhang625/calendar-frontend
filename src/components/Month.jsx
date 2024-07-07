@@ -1,9 +1,38 @@
 import "./Month.css";
 import Day from "./Day";
+import { useState } from "react";
+import { useEffect } from "react";
+import itemService from "../items";
+import { useRef } from "react";
 
 function Month({ year, month, startOnSun }) {
   const daysInMonth = new Date(year, month + 1, 0).getDate();
   const begDay = new Date(year, month, 1).getDay();
+  const [items, setItems] = useState([]);
+  const initialLoad = useRef(false);
+
+  useEffect(() => {
+    if (items.length !== 0 && !initialLoad.current) {
+      itemService.addItem(items[items.length - 1]);
+    }
+    if (initialLoad.current) {
+      initialLoad.current = false;
+    }
+  }, [items]);
+
+  useEffect(() => {
+    itemService.getItems().then((initialItems) => {
+      setItems(initialItems);
+      initialLoad.current = true;
+    });
+  }, []);
+
+  console.log("last item", items[items.length - 1]);
+
+  if (!items) return null;
+
+  console.log(items);
+  console.log(Array.isArray(items));
 
   let offset = 1;
 
@@ -30,6 +59,8 @@ function Month({ year, month, startOnSun }) {
           year={year}
           month={month}
           daysInMonth={daysInMonth}
+          items={items}
+          setItems={setItems}
         />
       );
       offset++;
@@ -47,6 +78,8 @@ function Month({ year, month, startOnSun }) {
           year={year}
           month={month}
           daysInMonth={daysInMonth}
+          items={items}
+          setItems={setItems}
         />
       );
       offset++;

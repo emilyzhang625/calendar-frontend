@@ -6,6 +6,9 @@ function Calendar() {
   const [startOnSun, setStartOnSun] = useState(true);
   const [date, setDate] = useState(new Date());
 
+  console.log(startOnSun);
+  console.log(date);
+
   const changeStartDay = (props) => {
     setStartOnSun(props);
   };
