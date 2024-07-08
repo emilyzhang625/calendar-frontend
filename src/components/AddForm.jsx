@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useRef } from "react";
 import "./AddForm.css";
+import itemService from "../items";
 
 function AddForm({ year, month, day, setItems, items }) {
   const [showAddButton, setShowAddButton] = useState(true);
@@ -19,7 +20,9 @@ function AddForm({ year, month, day, setItems, items }) {
     }
 
     setShowAddButton(true);
-    setItems([...items, newItem]);
+    itemService.addItem(newItem).then((returnedItem) => {
+      setItems([...items, returnedItem]);
+    });
   };
 
   const handleAddClick = (props) => {

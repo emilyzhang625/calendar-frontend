@@ -8,12 +8,11 @@ const getItems = () => {
 
 const addItem = (newItem) => {
 	const request = axios.post(baseUrl, newItem)
-	console.log(newItem);
 	return request.then(response => response.data)
 }
 
-const removeItem = (id) => {
-	const request = axios.delete(`${baseUrl}/${id}`)
+const removeItem = (toBeRemoved) => {
+	const request = axios.delete(`${baseUrl}/${toBeRemoved.id}`)
 	return request.then(response => response.data)
 }
 

@@ -1,8 +1,21 @@
 .item {
-	background-color: pink;
-	font-size:14px
+	font-size:14px;
+	height:20px
 }
 
 .item-container {
+	display: flex;
+	justify-content: space-between;  /* Place items on far ends */
+	align-items: center;
 	margin-top: 5px;
+	background-color: pink;
+}
+
+.delete-button {
+	display:none;
+	height:20px
+}
+
+.item-container:hover .delete-button {
+	display:block
 }
