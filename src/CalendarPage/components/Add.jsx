@@ -1,9 +1,8 @@
-import { useState } from "react";
-import { useRef } from "react";
-import "./AddForm.css";
-import itemService from "../items";
+import { useState, useRef } from "react";
+import "./Add.css";
+import itemService from "../../items";
 
-function AddForm({ year, month, day, setItems, items }) {
+function Add({ year, month, day, setItems, items }) {
   const [showAddButton, setShowAddButton] = useState(true);
   const nameInput = useRef(null);
 
@@ -53,4 +52,4 @@ function AddForm({ year, month, day, setItems, items }) {
   );
 }
 
-export default AddForm;
+export default Add;

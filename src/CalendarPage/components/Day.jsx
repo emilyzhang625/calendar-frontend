@@ -1,8 +1,8 @@
-import AddForm from "./AddForm";
+import Add from "./Add";
 import List from "./List";
 import "./Day.css";
 import { useState, useEffect } from "react";
-import itemService from "../items";
+import itemService from "../../items";
 
 function Day({ day, year, month, daysInMonth }) {
   const now = new Date();
@@ -28,7 +28,7 @@ function Day({ day, year, month, daysInMonth }) {
             <div className="day-num">{day}</div>
           )}
           <div className="add-form">
-            <AddForm
+            <Add
               day={day}
               year={year}
               month={month}

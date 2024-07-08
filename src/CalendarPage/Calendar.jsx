@@ -1,4 +1,4 @@
-import Month from "./Month";
+import Month from "./components/Month";
 import { useState } from "react";
 import "./Calendar.css";
 
@@ -63,7 +63,8 @@ function Calendar() {
   const next = ">";
 
   return (
-    <div>
+    <div className="container">
+      <div className="title">Agenda</div>
       <div className="header">
         <div className="month-year">
           {monthName} {date.getFullYear()}

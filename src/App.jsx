@@ -1,13 +1,7 @@
-import Calendar from "./components/Calendar";
-import "./App.css";
+import CalendarPage from "./CalendarPage/Calendar";
 
 function App() {
-  return (
-    <div className="container">
-      <div className="title">Agenda</div>
-      <Calendar />
-    </div>
-  );
+  return <CalendarPage />;
 }
 
 export default App;
