@@ -16,4 +16,9 @@ const removeItem = (toBeRemoved) => {
 	return request.then(response => response.data)
 }
 
-export default {getItems,addItem, removeItem}
+const updateItem = (updatedItem) => {
+	const request = axios.put(`${baseUrl}/${updatedItem.id}`, updatedItem)
+	return request.then(response => response.date)
+}
+
+export default {getItems,addItem, removeItem, updateItem}

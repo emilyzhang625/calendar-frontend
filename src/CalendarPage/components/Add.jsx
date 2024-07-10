@@ -40,6 +40,7 @@ function Add({ year, month, day, setItems, items }) {
               type="text"
               placeholder="Name of event"
               ref={nameInput}
+              className="add-input"
             ></input>
           </div>
           <div className="button-container">

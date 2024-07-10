@@ -1,21 +1,29 @@
 .item {
 	font-size:14px;
-	height:20px
+	height:20px;
+	overflow: hidden; /* Hides overflowing content */
+  text-overflow: ellipsis; /* Displays ellipsis (...) for truncated text */
+  white-space: nowrap; /* Prevents text from wrapping */
+  width: 100%
 }
 
 .item-container {
 	display: flex;
-	justify-content: space-between;  /* Place items on far ends */
+	justify-content: space-between; 
 	align-items: center;
 	margin-top: 5px;
 	background-color: pink;
 }
 
-.delete-button {
+.modify-buttons {
 	display:none;
-	height:20px
+	height:20px;
 }
 
-.item-container:hover .delete-button {
+.item-container:hover .modify-buttons {
 	display:block
+}
+
+.item-container:hover .item {
+	width: 40%
 }

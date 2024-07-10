@@ -6,8 +6,10 @@
   }
   
   .input-container {
+	
 	width: 100%;
   }
+
   
   .button-container {
 	display: flex;

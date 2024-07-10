@@ -1,20 +1,13 @@
 import Add from "./Add";
 import List from "./List";
 import "./Day.css";
-import { useState, useEffect } from "react";
-import itemService from "../../items";
 
-function Day({ day, year, month, daysInMonth }) {
+function Day({ day, year, month, daysInMonth, items, setItems }) {
   const now = new Date();
   const currDay =
     now.getFullYear() === year &&
     now.getMonth() === month &&
     now.getDate() === day;
-
-  const [items, setItems] = useState([]);
-  useEffect(() => {
-    itemService.getItems().then((startingItems) => setItems(startingItems));
-  }, []);
 
   return (
     <>

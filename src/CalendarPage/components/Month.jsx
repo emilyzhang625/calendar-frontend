@@ -1,7 +1,14 @@
 import "./Month.css";
 import Day from "./Day";
+import { useState, useEffect } from "react";
+import itemService from "../../items";
 
 function Month({ year, month, startOnSun }) {
+  const [items, setItems] = useState([]);
+  useEffect(() => {
+    itemService.getItems().then((startingItems) => setItems(startingItems));
+  }, []);
+
   const daysInMonth = new Date(year, month + 1, 0).getDate();
   const begDay = new Date(year, month, 1).getDay();
 
@@ -29,6 +36,8 @@ function Month({ year, month, startOnSun }) {
           year={year}
           month={month}
           daysInMonth={daysInMonth}
+          items={items}
+          setItems={setItems}
         />
       );
       offset++;
@@ -46,6 +55,8 @@ function Month({ year, month, startOnSun }) {
           year={year}
           month={month}
           daysInMonth={daysInMonth}
+          items={items}
+          setItems={setItems}
         />
       );
       offset++;
@@ -69,12 +80,14 @@ function Month({ year, month, startOnSun }) {
   }
 
   return (
-    <table>
-      <tbody>
-        <tr key="headers">{headerArr}</tr>
-        {monthArr}
-      </tbody>
-    </table>
+    <>
+      <table>
+        <tbody>
+          <tr key="headers">{headerArr}</tr>
+          {monthArr}
+        </tbody>
+      </table>
+    </>
   );
 }
 
