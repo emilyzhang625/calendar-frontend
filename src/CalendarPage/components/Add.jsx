@@ -1,6 +1,6 @@
 import { useState, useRef } from "react";
 import "./Add.css";
-import itemService from "../../items";
+import itemService from "../../services/items";
 
 function Add({ year, month, day, setItems, items }) {
   const [showAddButton, setShowAddButton] = useState(true);

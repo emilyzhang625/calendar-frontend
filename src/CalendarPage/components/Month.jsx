@@ -1,7 +1,7 @@
 import "./Month.css";
 import Day from "./Day";
 import { useState, useEffect } from "react";
-import itemService from "../../items";
+import itemService from "../../services/items";
 
 function Month({ year, month, startOnSun }) {
   const [items, setItems] = useState([]);

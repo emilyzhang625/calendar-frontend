@@ -1,5 +1,5 @@
 import "./List.css";
-import itemService from "../../items";
+import itemService from "../../services/items";
 
 function List({ year, month, day, items, setItems }) {
   const filteredItems = items.filter(
