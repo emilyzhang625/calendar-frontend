@@ -11,4 +11,10 @@ const addUser = (newUser) => {
 	return request.then(response => response.data)
 }
 
-export default {getUsers,addUser}
+const updateUser = (updatedUser) => {
+	console.log(updatedUser)
+	const request = axios.put(`${baseUrl}/${updatedUser.id}`, updatedUser)
+	return request.then(response => response.date)
+}
+
+export default {getUsers,addUser,updateUser}

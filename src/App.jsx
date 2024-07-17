@@ -3,10 +3,14 @@ import UserPage from "./UserPage/User";
 
 function App() {
   return (
-    <div>
-      <UserPage />
-      {/* <CalendarPage /> */}
-    </div>
+    <UserPage />
+    // <Router>
+    //   <Routes>
+    //     <Route path="/" element={<UserPage />} />
+    //     <Route path="/calendar" element={<ListOfItems />} />
+    //     {/* <Route path="/calendar" element={<CalendarPage />} /> */}
+    //   </Routes>
+    // </Router>
   );
 }
 
