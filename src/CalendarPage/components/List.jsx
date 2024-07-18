@@ -3,7 +3,7 @@ import itemService from "../../services/items";
 import userService from "../../services/users";
 import { useEffect } from "react";
 
-function List({ year, month, day, items, setItems, user, setUser }) {
+function List({ year, month, day, items, setItems, user, setUser, setChange }) {
   const filteredItems = items.filter(
     (item) => item.year === year && item.month === month && item.day === day
   );
@@ -17,6 +17,7 @@ function List({ year, month, day, items, setItems, user, setUser }) {
 
     userService.updateUser(updatedUser).then((returnedUser) => {
       setItems(returnedUser.items);
+      setChange([1]);
       console.log(returnedUser.items);
     });
   };
@@ -42,9 +43,10 @@ function List({ year, month, day, items, setItems, user, setUser }) {
       items: updatedItems,
     };
 
-    userService
-      .updateUser(updatedUser)
-      .then((returnedUser) => setItems(returnedUser.items));
+    userService.updateUser(updatedUser).then((returnedUser) => {
+      setItems(returnedUser.items);
+      setChange([2]);
+    });
   };
 
   const next = ">";

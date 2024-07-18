@@ -6,13 +6,21 @@ import userService from "../../services/users";
 function Month({ year, month }) {
   const [items, setItems] = useState([]);
   const [person, setPerson] = useState(null);
+  const [change, setChange] = useState([]);
   useEffect(() => {
     userService.getUsers().then((startingUsers) => {
-      setItems(startingUsers[1].items);
+      setItems(startingUsers[0].items);
       setPerson(startingUsers[0]);
     });
-  }, [items]);
+  }, []);
 
+  useEffect(() => {
+    userService.getUsers().then((startingUsers) => {
+      setItems(startingUsers[0].items);
+    });
+  }, [change]);
+
+  console.log("items in month", items);
   const daysInMonth = new Date(year, month + 1, 0).getDate();
   const begDay = new Date(year, month, 1).getDay();
 
@@ -36,6 +44,7 @@ function Month({ year, month }) {
           setUser={setPerson}
           items={items}
           setItems={setItems}
+          setChange={setChange}
         />
       );
       offset++;
@@ -57,6 +66,7 @@ function Month({ year, month }) {
           setUser={setPerson}
           items={items}
           setItems={setItems}
+          setChange={setChange}
         />
       );
       offset++;

@@ -13,6 +13,7 @@ function Day({
   setUser,
   items,
   setItems,
+  setChange,
 }) {
   const now = new Date();
   const currDay =
@@ -40,6 +41,7 @@ function Day({
               items={items}
               user={user}
               setUser={setUser}
+              setChange={setChange}
             />
           </div>
           <div className="list">
@@ -51,6 +53,7 @@ function Day({
               setItems={setItems}
               user={user}
               setUser={setUser}
+              setChange={setChange}
             />
           </div>
         </td>

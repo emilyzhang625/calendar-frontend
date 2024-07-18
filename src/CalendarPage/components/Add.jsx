@@ -5,7 +5,7 @@ import userService from "../../services/users";
 import { useEffect } from "react";
 import { v4 as uuidv4 } from "uuid";
 
-function Add({ year, month, day, setItems, items, user, setUser }) {
+function Add({ year, month, day, setItems, items, user, setUser, setChange }) {
   const [showAddButton, setShowAddButton] = useState(true);
   const nameInput = useRef(null);
 
@@ -31,6 +31,7 @@ function Add({ year, month, day, setItems, items, user, setUser }) {
 
     userService.updateUser(updatedUser).then((returnedUser) => {
       setItems(returnedUser.items);
+      setChange([3]);
     });
   };
 
