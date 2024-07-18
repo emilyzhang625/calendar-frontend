@@ -3,12 +3,12 @@ import Day from "./Day";
 import { useState, useEffect } from "react";
 import userService from "../../services/users";
 
-function Month({ year, month, startOnSun }) {
+function Month({ year, month }) {
   const [items, setItems] = useState([]);
   const [person, setPerson] = useState(null);
   useEffect(() => {
     userService.getUsers().then((startingUsers) => {
-      setItems(startingUsers[0].items);
+      setItems(startingUsers[1].items);
       setPerson(startingUsers[0]);
     });
   }, [items]);
@@ -18,15 +18,7 @@ function Month({ year, month, startOnSun }) {
 
   let offset = 1;
 
-  if (startOnSun) {
-    offset = -begDay + 1;
-  } else {
-    if (begDay === 0) {
-      offset = -5;
-    } else {
-      offset = -begDay + 2;
-    }
-  }
+  offset = -begDay + 1;
 
   let monthArr = [];
   let daysArr = [];
@@ -81,11 +73,6 @@ function Month({ year, month, startOnSun }) {
     <th key="fri">Friday</th>,
     <th key="sat">Saturday</th>,
   ];
-
-  if (!startOnSun) {
-    const sunday = headerArr.shift();
-    headerArr.push(sunday);
-  }
 
   return (
     <>

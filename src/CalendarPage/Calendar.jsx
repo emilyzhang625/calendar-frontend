@@ -3,12 +3,7 @@ import { useState } from "react";
 import "./Calendar.css";
 
 function Calendar() {
-  const [startOnSun, setStartOnSun] = useState(true);
   const [date, setDate] = useState(new Date());
-
-  const changeStartDay = (props) => {
-    setStartOnSun(props);
-  };
 
   const jumpToday = () => {
     setDate(new Date());
@@ -70,25 +65,13 @@ function Calendar() {
           {monthName} {date.getFullYear()}
         </div>
         <div className="button-row">
-          <button onClick={() => changeStartDay(!startOnSun)}>
-            Start week on{" "}
-            {startOnSun ? (
-              <div className="other-start">Monday</div>
-            ) : (
-              <div className="other-start">Sunday</div>
-            )}
-          </button>
           <button onClick={() => jumpMonth(-1)}>{prev}</button>
           <button onClick={jumpToday}>Today</button>
           <button onClick={() => jumpMonth(1)}>{next}</button>
         </div>
       </div>
 
-      <Month
-        year={date.getFullYear()}
-        month={date.getMonth()}
-        startOnSun={startOnSun}
-      />
+      <Month year={date.getFullYear()} month={date.getMonth()} />
     </div>
   );
 }
