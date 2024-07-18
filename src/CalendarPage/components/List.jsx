@@ -1,20 +1,27 @@
 import "./List.css";
 import itemService from "../../services/items";
+import userService from "../../services/users";
+import { useEffect } from "react";
 
-function List({ year, month, day, items, setItems }) {
+function List({ year, month, day, items, setItems, user, setUser }) {
   const filteredItems = items.filter(
     (item) => item.year === year && item.month === month && item.day === day
   );
 
   const handleDelete = (id) => {
-    const toBeRemoved = items.find((item) => item.id === id);
-    itemService
-      .removeItem(toBeRemoved)
-      .then(() => setItems(items.filter((item) => item.id !== id)));
+    const updatedItems = items.filter((item) => item.id !== id);
+    const updatedUser = {
+      ...user,
+      items: updatedItems,
+    };
+
+    userService.updateUser(updatedUser).then((returnedUser) => {
+      setItems(returnedUser.items);
+      console.log(returnedUser.items);
+    });
   };
 
   const shiftForward = (id, offset) => {
-    const index = items.findIndex((item) => item.id === id);
     const item = items.find((item) => item.id === id);
     const currDate = new Date(item.year, item.month, item.day);
     currDate.setDate(currDate.getDate() + offset);
@@ -29,7 +36,15 @@ function List({ year, month, day, items, setItems }) {
     const updatedItems = items.map((item) =>
       item.id === id ? updatedItem : item
     );
-    itemService.updateItem(updatedItem).then(() => setItems(updatedItems));
+
+    const updatedUser = {
+      ...user,
+      items: updatedItems,
+    };
+
+    userService
+      .updateUser(updatedUser)
+      .then((returnedUser) => setItems(returnedUser.items));
   };
 
   const next = ">";

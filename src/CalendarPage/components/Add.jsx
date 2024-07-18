@@ -1,8 +1,11 @@
 import { useState, useRef } from "react";
 import "./Add.css";
 import itemService from "../../services/items";
+import userService from "../../services/users";
+import { useEffect } from "react";
+import { v4 as uuidv4 } from "uuid";
 
-function Add({ year, month, day, setItems, items }) {
+function Add({ year, month, day, setItems, items, user, setUser }) {
   const [showAddButton, setShowAddButton] = useState(true);
   const nameInput = useRef(null);
 
@@ -12,6 +15,7 @@ function Add({ year, month, day, setItems, items }) {
       year: year,
       month: month,
       day: day,
+      id: uuidv4(),
     };
 
     if (nameInput.current.value) {
@@ -19,8 +23,14 @@ function Add({ year, month, day, setItems, items }) {
     }
 
     setShowAddButton(true);
-    itemService.addItem(newItem).then((returnedItem) => {
-      setItems([...items, returnedItem]);
+
+    const updatedUser = {
+      ...user,
+      items: user.items.concat(newItem),
+    };
+
+    userService.updateUser(updatedUser).then((returnedUser) => {
+      setItems(returnedUser.items);
     });
   };
 

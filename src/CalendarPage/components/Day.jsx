@@ -1,8 +1,19 @@
 import Add from "./Add";
 import List from "./List";
 import "./Day.css";
+import { useState, useEffect } from "react";
+import userService from "../../services/users";
 
-function Day({ day, year, month, daysInMonth, items, setItems }) {
+function Day({
+  day,
+  year,
+  month,
+  daysInMonth,
+  user,
+  setUser,
+  items,
+  setItems,
+}) {
   const now = new Date();
   const currDay =
     now.getFullYear() === year &&
@@ -27,6 +38,8 @@ function Day({ day, year, month, daysInMonth, items, setItems }) {
               month={month}
               setItems={setItems}
               items={items}
+              user={user}
+              setUser={setUser}
             />
           </div>
           <div className="list">
@@ -36,6 +49,8 @@ function Day({ day, year, month, daysInMonth, items, setItems }) {
               day={day}
               items={items}
               setItems={setItems}
+              user={user}
+              setUser={setUser}
             />
           </div>
         </td>

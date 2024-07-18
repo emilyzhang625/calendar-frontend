@@ -33,8 +33,11 @@ function User() {
 
   const handleClick = () => {
     setItems([...items, 1]);
-    let curr = users[0];
-    curr.items = [0, 0, 0];
+    let curr = users[1];
+    curr.items = [
+      { year: 2024, month: 6, day: 17, name: "hello" },
+      { year: 2024, month: 6, day: 17, name: "hello" },
+    ];
     console.log(curr);
 
     userService.updateUser(curr);
