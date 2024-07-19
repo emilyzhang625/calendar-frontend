@@ -1,7 +1,7 @@
 import Form from "./Form";
 
 function User() {
-  return <Form buttonName={"Sign up"} />;
+  return <Form buttonName={"Login"} />;
 }
 
 export default User;

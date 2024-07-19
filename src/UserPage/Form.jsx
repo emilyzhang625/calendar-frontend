@@ -8,7 +8,6 @@ function Form({ buttonName }) {
   const navigate = useNavigate();
 
   const [users, setUsers] = useState([]);
-  const [curr, setCurr] = useState(null);
   useEffect(() => {
     userService.getUsers().then((startingUsers) => setUsers(startingUsers));
   }, []);
@@ -18,7 +17,6 @@ function Form({ buttonName }) {
   const password = useRef(null);
 
   const handleSubmit = () => {
-    event.preventDefault();
     if (buttonName === "Sign up") {
       const alrExists = users.findIndex(
         (user) => user.username === username.current.value
@@ -37,11 +35,20 @@ function Form({ buttonName }) {
 
         userService.addUser(newUser).then((returnedUser) => {
           setUsers([...users, returnedUser]);
-          setCurr(returnedUser);
           console.log("form's user", returnedUser);
 
           navigate("/calendar", { state: { user: returnedUser } });
         });
+      }
+    }
+    if (buttonName === "Login") {
+      const index = users.findIndex(
+        (user) => user.username === username.current.value
+      );
+      if (index === -1) {
+        window.alert("Incorrect login, please try again.");
+      } else {
+        navigate("/calendar", { state: { user: users[index] } });
       }
     }
   };
@@ -56,7 +63,6 @@ function Form({ buttonName }) {
         required
       ></input>
       <button onClick={handleSubmit}>{buttonName}</button>
-      {/* {curr !== 0 && <CalendarPage index={curr} />} */}
     </>
   );
 }
