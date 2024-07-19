@@ -1,8 +1,6 @@
 import Add from "./Add";
 import List from "./List";
 import "./Day.css";
-import { useState, useEffect } from "react";
-import userService from "../../services/users";
 
 function Day({ day, year, month, daysInMonth, user, setUser }) {
   const now = new Date();

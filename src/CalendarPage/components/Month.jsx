@@ -1,15 +1,11 @@
 import "./Month.css";
 import Day from "./Day";
-import { useState, useEffect } from "react";
-import userService from "../../services/users";
 
 function Month({ year, month, user, setUser }) {
-  console.log("user in month", user);
   const daysInMonth = new Date(year, month + 1, 0).getDate();
   const begDay = new Date(year, month, 1).getDay();
 
   let offset = 1;
-
   offset = -begDay + 1;
 
   let monthArr = [];

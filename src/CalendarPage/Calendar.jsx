@@ -9,7 +9,6 @@ function Calendar() {
 
   const { user: initialUser } = location.state || {};
   const { user: { id } = {} } = location.state || {}; // Extract id from location.state.user
-  console.log(id);
 
   const [date, setDate] = useState(new Date());
   const [user, setUser] = useState(initialUser);
@@ -17,7 +16,6 @@ function Calendar() {
   useEffect(() => {
     userService.getCurr(id).then((returnedUser) => setUser(returnedUser));
   }, [id]);
-  console.log("cals user", user);
 
   const jumpToday = () => {
     setDate(new Date());

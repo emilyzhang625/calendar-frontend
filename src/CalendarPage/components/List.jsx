@@ -1,9 +1,7 @@
 import "./List.css";
 import userService from "../../services/users";
-import { useEffect } from "react";
 
 function List({ year, month, day, user, setUser }) {
-  console.log("user.items in list", user.items);
   const filteredItems = user.items.filter(
     (item) => item.year === year && item.month === month && item.day === day
   );

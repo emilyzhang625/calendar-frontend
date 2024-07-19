@@ -28,7 +28,7 @@ function Form({ buttonName }) {
       const newUser = {
         username: username.current.value,
         password: password.current.value,
-        items: [{ name: "test", year: 2024, month: 6, day: 18 }],
+        items: [],
       };
 
       userService.addUser(newUser).then((returnedUser) => {
