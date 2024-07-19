@@ -1,10 +1,22 @@
 table,th,td {
 	border-width :1px;
 	border-style: solid;
-	border-color: black;
+	border-color: lightgray;
 	border-collapse: collapse;
 	table-layout: fixed;
 	width: 100%;
 	padding: 15px;
+	
 }
 
+th {
+	/* border-color:white; */
+	border-left-color:white;
+	border-right-color:white;
+	color:gray;
+font-weight: normal;
+font-size:12px;
+}
+td {
+	padding:5px;
+}

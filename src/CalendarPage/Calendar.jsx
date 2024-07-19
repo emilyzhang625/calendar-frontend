@@ -79,9 +79,15 @@ function Calendar() {
           {monthName} {date.getFullYear()}
         </div>
         <div className="button-row">
-          <button onClick={() => jumpMonth(-1)}>{prev}</button>
-          <button onClick={jumpToday}>Today</button>
-          <button onClick={() => jumpMonth(1)}>{next}</button>
+          <button className="cal-button" onClick={() => jumpMonth(-1)}>
+            {prev}
+          </button>
+          <button className="cal-button" onClick={jumpToday}>
+            Today
+          </button>
+          <button className="cal-button" onClick={() => jumpMonth(1)}>
+            {next}
+          </button>
         </div>
       </div>
 

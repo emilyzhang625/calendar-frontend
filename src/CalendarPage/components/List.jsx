@@ -1,5 +1,4 @@
 import "./List.css";
-import itemService from "../../services/items";
 import userService from "../../services/users";
 import { useEffect } from "react";
 
@@ -54,9 +53,21 @@ function List({ year, month, day, user, setUser }) {
     <div className="item-container" key={item.id}>
       <div className="item">{item.name}</div>
       <div className="modify-buttons">
-        <button onClick={() => shiftForward(item.id, -1)}>{prev}</button>
-        <button onClick={() => shiftForward(item.id, 1)}>{next}</button>
-        <button onClick={() => handleDelete(item.id)}>x</button>
+        <button
+          className="list-button"
+          onClick={() => shiftForward(item.id, -1)}
+        >
+          {prev}
+        </button>
+        <button
+          className="list-button"
+          onClick={() => shiftForward(item.id, 1)}
+        >
+          {next}
+        </button>
+        <button className="list-button" onClick={() => handleDelete(item.id)}>
+          x
+        </button>
       </div>
     </div>
   ));

@@ -1,6 +1,5 @@
 import { useState, useRef } from "react";
 import "./Add.css";
-import itemService from "../../services/items";
 import userService from "../../services/users";
 import { useEffect } from "react";
 import { v4 as uuidv4 } from "uuid";
@@ -42,7 +41,9 @@ function Add({ year, month, day, user, setUser }) {
   return (
     <div>
       {showAddButton && (
-        <button onClick={() => handleAddClick(false)}>+</button>
+        <button onClick={() => handleAddClick(false)} className="add-button">
+          +
+        </button>
       )}
       {!showAddButton && (
         <div className="form">

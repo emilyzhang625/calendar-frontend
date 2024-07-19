@@ -53,20 +53,22 @@ function Month({ year, month, user, setUser }) {
   }
 
   let headerArr = [
-    <th key="sun">Sunday</th>,
-    <th key="mon">Monday</th>,
-    <th key="tues">Tuesday</th>,
-    <th key="wed">Wednesday</th>,
-    <th key="thurs">Thursday</th>,
-    <th key="fri">Friday</th>,
-    <th key="sat">Saturday</th>,
+    <th key="sun">Sun</th>,
+    <th key="mon">Mon</th>,
+    <th key="tues">Tues</th>,
+    <th key="wed">Wed</th>,
+    <th key="thurs">Thurs</th>,
+    <th key="fri">Fri</th>,
+    <th key="sat">Sat</th>,
   ];
 
   return (
     <>
       <table>
         <tbody>
-          <tr key="headers">{headerArr}</tr>
+          <tr key="headers" className="headers">
+            {headerArr}
+          </tr>
           {monthArr}
         </tbody>
       </table>

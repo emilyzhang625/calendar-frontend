@@ -29,3 +29,13 @@
   .other-start {
 	display:inline
   }
+
+  .cal-button {
+	background-color: white;
+	border:none;
+  }
+
+  .cal-button:hover {
+	background-color: lightgray;
+	border-radius:4px;
+  }
