@@ -1,16 +1,16 @@
 import CalendarPage from "./CalendarPage/Calendar";
 import UserPage from "./UserPage/User";
+import FormPage from "./UserPage/Form";
+import { BrowserRouter as Router, Route, Routes, Link } from "react-router-dom";
 
 function App() {
   return (
-    <CalendarPage />
-    // <Router>
-    //   <Routes>
-    //     <Route path="/" element={<UserPage />} />
-    //     <Route path="/calendar" element={<ListOfItems />} />
-    //     {/* <Route path="/calendar" element={<CalendarPage />} /> */}
-    //   </Routes>
-    // </Router>
+    <Router>
+      <Routes>
+        <Route path="/" element={<UserPage />} />
+        <Route path="/calendar" element={<CalendarPage />} />
+      </Routes>
+    </Router>
   );
 }
 

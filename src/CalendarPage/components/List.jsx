@@ -3,27 +3,26 @@ import itemService from "../../services/items";
 import userService from "../../services/users";
 import { useEffect } from "react";
 
-function List({ year, month, day, items, setItems, user, setUser, setChange }) {
-  const filteredItems = items.filter(
+function List({ year, month, day, user, setUser }) {
+  console.log("user.items in list", user.items);
+  const filteredItems = user.items.filter(
     (item) => item.year === year && item.month === month && item.day === day
   );
 
   const handleDelete = (id) => {
-    const updatedItems = items.filter((item) => item.id !== id);
+    const updatedItems = user.items.filter((item) => item.id !== id);
     const updatedUser = {
       ...user,
       items: updatedItems,
     };
 
-    userService.updateUser(updatedUser).then((returnedUser) => {
-      setItems(returnedUser.items);
-      setChange([1]);
-      console.log(returnedUser.items);
+    userService.updateUser(updatedUser).then(() => {
+      setUser(updatedUser);
     });
   };
 
   const shiftForward = (id, offset) => {
-    const item = items.find((item) => item.id === id);
+    const item = user.items.find((item) => item.id === id);
     const currDate = new Date(item.year, item.month, item.day);
     currDate.setDate(currDate.getDate() + offset);
 
@@ -34,7 +33,7 @@ function List({ year, month, day, items, setItems, user, setUser, setChange }) {
       day: currDate.getDate(),
     };
 
-    const updatedItems = items.map((item) =>
+    const updatedItems = user.items.map((item) =>
       item.id === id ? updatedItem : item
     );
 
@@ -43,9 +42,8 @@ function List({ year, month, day, items, setItems, user, setUser, setChange }) {
       items: updatedItems,
     };
 
-    userService.updateUser(updatedUser).then((returnedUser) => {
-      setItems(returnedUser.items);
-      setChange([2]);
+    userService.updateUser(updatedUser).then(() => {
+      setUser(updatedUser);
     });
   };
 

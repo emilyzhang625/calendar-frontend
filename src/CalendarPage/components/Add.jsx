@@ -5,9 +5,10 @@ import userService from "../../services/users";
 import { useEffect } from "react";
 import { v4 as uuidv4 } from "uuid";
 
-function Add({ year, month, day, setItems, items, user, setUser, setChange }) {
+function Add({ year, month, day, user, setUser }) {
   const [showAddButton, setShowAddButton] = useState(true);
   const nameInput = useRef(null);
+  console.log("user in add", user);
 
   const handleSubmit = () => {
     const newItem = {
@@ -29,9 +30,8 @@ function Add({ year, month, day, setItems, items, user, setUser, setChange }) {
       items: user.items.concat(newItem),
     };
 
-    userService.updateUser(updatedUser).then((returnedUser) => {
-      setItems(returnedUser.items);
-      setChange([3]);
+    userService.updateUser(updatedUser).then(() => {
+      setUser(updatedUser);
     });
   };
 

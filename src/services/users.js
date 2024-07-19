@@ -6,6 +6,11 @@ const getUsers = () => {
 	return request.then(response => response.data)
 }
 
+const getCurr = (id) => {
+	const request = axios.get(`${baseUrl}/${id}`)
+	return request.then(response => response.data)
+}
+
 const addUser = (newUser) => {
 	const request = axios.post(baseUrl, newUser)
 	return request.then(response => response.data)
@@ -16,4 +21,4 @@ const updateUser = (updatedUser) => {
 	return request.then(response => response.data)
 }
 
-export default {getUsers,addUser,updateUser}
+export default {getUsers,getCurr, addUser,updateUser}

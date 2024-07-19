@@ -3,24 +3,8 @@ import Day from "./Day";
 import { useState, useEffect } from "react";
 import userService from "../../services/users";
 
-function Month({ year, month }) {
-  const [items, setItems] = useState([]);
-  const [person, setPerson] = useState(null);
-  const [change, setChange] = useState([]);
-  useEffect(() => {
-    userService.getUsers().then((startingUsers) => {
-      setItems(startingUsers[0].items);
-      setPerson(startingUsers[0]);
-    });
-  }, []);
-
-  useEffect(() => {
-    userService.getUsers().then((startingUsers) => {
-      setItems(startingUsers[0].items);
-    });
-  }, [change]);
-
-  console.log("items in month", items);
+function Month({ year, month, user, setUser }) {
+  console.log("user in month", user);
   const daysInMonth = new Date(year, month + 1, 0).getDate();
   const begDay = new Date(year, month, 1).getDay();
 
@@ -40,11 +24,8 @@ function Month({ year, month }) {
           year={year}
           month={month}
           daysInMonth={daysInMonth}
-          user={person}
-          setUser={setPerson}
-          items={items}
-          setItems={setItems}
-          setChange={setChange}
+          user={user}
+          setUser={setUser}
         />
       );
       offset++;
@@ -62,11 +43,8 @@ function Month({ year, month }) {
           year={year}
           month={month}
           daysInMonth={daysInMonth}
-          user={person}
-          setUser={setPerson}
-          items={items}
-          setItems={setItems}
-          setChange={setChange}
+          user={user}
+          setUser={setUser}
         />
       );
       offset++;

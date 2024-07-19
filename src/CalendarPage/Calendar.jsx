@@ -1,9 +1,23 @@
 import Month from "./components/Month";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import "./Calendar.css";
+import { useLocation } from "react-router-dom";
+import userService from "../services/users";
 
 function Calendar() {
+  const location = useLocation();
+
+  const { user: initialUser } = location.state || {};
+  const { user: { id } = {} } = location.state || {}; // Extract id from location.state.user
+  console.log(id);
+
   const [date, setDate] = useState(new Date());
+  const [user, setUser] = useState(initialUser);
+
+  useEffect(() => {
+    userService.getCurr(id).then((returnedUser) => setUser(returnedUser));
+  }, [id]);
+  console.log("cals user", user);
 
   const jumpToday = () => {
     setDate(new Date());
@@ -71,7 +85,12 @@ function Calendar() {
         </div>
       </div>
 
-      <Month year={date.getFullYear()} month={date.getMonth()} />
+      <Month
+        year={date.getFullYear()}
+        month={date.getMonth()}
+        user={user}
+        setUser={setUser}
+      />
     </div>
   );
 }
