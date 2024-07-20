@@ -15,6 +15,7 @@ function List({ year, month, day, user, setUser }) {
 
     userService.updateUser(updatedUser).then(() => {
       setUser(updatedUser);
+      localStorage.setItem("curr", JSON.stringify(updatedUser));
     });
   };
 
@@ -41,6 +42,7 @@ function List({ year, month, day, user, setUser }) {
 
     userService.updateUser(updatedUser).then(() => {
       setUser(updatedUser);
+      localStorage.setItem("curr", JSON.stringify(updatedUser));
     });
   };
 

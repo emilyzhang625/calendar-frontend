@@ -32,17 +32,21 @@ function Profile() {
         "This is your current username, please pick a different one."
       );
     } else {
-      const index = users.findIndex(
-        (user) =>
-          user.username.toLowerCase() === username.current.value.toLowerCase()
-      );
-      if (index !== -1) {
+      if (
+        users.findIndex(
+          (user) =>
+            user.username.toLowerCase() === username.current.value.toLowerCase()
+        ) !== -1
+      ) {
         window.alert("Username already exists, please pick a different one.");
       } else {
         const updatedUser = { ...curr, username: username.current.value };
-        userService.updateUser(updatedUser).then(() => setCurr(updatedUser));
+        userService.updateUser(updatedUser).then(() => {
+          setCurr(updatedUser);
+          localStorage.setItem("curr", JSON.stringify(updatedUser));
+        });
         username.current.value = "";
-        window.alert("Sucessfully updated username!");
+        window.alert("Successfully updated username!");
       }
     }
   };
@@ -56,9 +60,12 @@ function Profile() {
       );
     } else {
       const updatedUser = { ...curr, password: password.current.value };
-      userService.updateUser(updatedUser).then(() => setCurr(updatedUser));
+      userService.updateUser(updatedUser).then(() => {
+        setCurr(updatedUser);
+        localStorage.setItem("curr", JSON.stringify(updatedUser));
+      });
       password.current.value = "";
-      window.alert("Sucessfully updated password!");
+      window.alert("Successfully updated password!");
     }
   };
 
@@ -72,6 +79,7 @@ function Profile() {
     const updated = { ...curr, items: [] };
     userService.updateUser(updated).then(() => {
       setCurr(updated);
+      localStorage.setItem("curr", JSON.stringify(updated));
     });
     window.alert("Successfully cleared all events!");
     setActualClear(false);
