@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import userService from "../services/users";
 import "./Form.css";
 
-function Login() {
+function SignIn() {
   const navigate = useNavigate();
   const [users, setUsers] = useState([]);
   useEffect(() => {
@@ -16,14 +16,14 @@ function Login() {
   const handleSubmit = () => {
     const index = users.findIndex(
       (user) =>
-        user.username === username.current.value &&
+        user.username.toLowerCase() === username.current.value.toLowerCase() &&
         user.password === password.current.value
     );
 
     if (username.current.value === "" || password.current.value === "") {
       window.alert("Please fill out all fields.");
     } else if (index === -1) {
-      window.alert("Invalid login, please try again.");
+      window.alert("Invalid username or password, please try again.");
     } else {
       navigate("/calendar", { state: { user: users[index] } });
       username.current.value = "";
@@ -37,7 +37,7 @@ function Login() {
 
   return (
     <div className="user-container">
-      <div className="form-message">Welcome back to Agenda!</div>
+      <div className="form-message">Welcome back to Agenda</div>
       <div className="form-container">
         <input
           type="text"
@@ -54,7 +54,7 @@ function Login() {
           required
         ></input>
         <button onClick={handleSubmit} className="form-button">
-          Login
+          Sign in
         </button>
         <div className="go-to">
           <div>Don't have an account yet?</div>
@@ -65,4 +65,4 @@ function Login() {
   );
 }
 
-export default Login;
+export default SignIn;

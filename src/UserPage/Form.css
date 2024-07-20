@@ -64,6 +64,7 @@
   
   .go-to div {
 	margin-right: 10px; /* Space between text and button */
+	font-size:14px;
   }
   
   .go-to button {

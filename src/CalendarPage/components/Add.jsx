@@ -9,7 +9,7 @@ function Add({ year, month, day, user, setUser }) {
 
   const handleSubmit = () => {
     if (nameInput.current.value === "") {
-      window.alert("Please give a name for this event.");
+      window.alert("Please input a name for this event.");
     } else {
       const newItem = {
         name: nameInput.current.value,

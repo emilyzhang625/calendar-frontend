@@ -1,0 +1,176 @@
+/* Profile Page Styling */
+
+.big-container {
+	font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+
+	display: flex;
+	flex-direction: column;
+	align-items: center; /* Center content horizontally */
+	justify-content: center; /* Center content vertically */
+	min-height: 100vh; /* Full viewport height to center vertically */
+	padding: 20px; /* Add padding to the container */
+}
+.prof-container {
+
+	display: flex;
+	flex-direction: column; /* Stack form elements vertically */
+	width: 100%; /* Full width within its container */
+	max-width: 400px; /* Max width for the form container */
+	background-color: #ffffff; /* White background for the form */
+	border: 1px solid #ddd; /* Light gray border */
+	border-radius: 8px; /* Rounded corners */
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+	padding: 20px; /* Padding inside the form container */
+	box-sizing: border-box; /* Ensure padding and border are included in width */
+  }
+  
+  .prof-img {
+	margin: 0; /* Remove any margin */
+	padding: 0; /* Remove any padding */
+	border: none; /* Remove any border */
+	display: block; /* Ensure image behaves as a block element (removes bottom space) */
+  
+	width: 120px; /* Set width for the profile image */
+	height: 120px; /* Set height for the profile image */
+	border-radius: 50%; /* Make the image circular */
+	object-fit: cover; /* Ensure image covers the container */
+	margin-bottom: 10px; /* Space below the image */
+  }
+  
+  .prof-username, .prof-password {
+	width: 100%; /* Full width for form groups */
+	margin-bottom: 10px; /* Space between form groups */
+	display: flex; /* Flexbox for horizontal alignment */
+	align-items: center; /* Center items vertically */
+	gap: 10px; /* Space between input and button */
+  }
+
+  .prof-password {
+	margin-bottom:20px;
+  }
+  
+  .prof-username input, .prof-password input {
+	
+	width: 75%;
+	padding: 10px;
+	border: 1px solid #ddd; /* Light border for inputs */
+	border-radius: 4px; /* Rounded corners for inputs */
+	box-sizing: border-box; /* Include padding in width */
+  }
+  
+  .prof-username button, .prof-password button {
+	font-size: 14px;
+	padding: 10px 20px; /* Padding inside the button */
+	border: none;
+	width: 25%;
+	border-radius: 4px; /* Rounded corners for buttons */
+	cursor: pointer; /* Pointer cursor on hover */
+	transition: background-color 0.3s ease; /* Smooth transition */
+  }
+  
+  .prof-username button {
+	background-color: #007bff; /* Blue background for button */
+	color: #fff; /* White text color */
+  }
+  
+  .prof-username button:hover {
+	background-color: #0056b3; /* Darker blue on hover */
+  }
+  
+  .prof-password button {
+	background-color: #007bff; /* Blue background for button */
+	color: #fff; /* White text color */
+  }
+  
+  .prof-password button:hover {
+	background-color: #0056b3; /* Darker blue on hover */
+  }
+  
+  .prof-buttons {
+	width: 100%; /* Full width for button group */
+	display: flex; /* Flexbox for horizontal alignment */
+	flex-direction: column; /* Stack items vertically */
+	gap: 10px; /* Space between buttons */
+  }
+  
+  .prof-buttons button {
+	padding: 10px 20px; /* Padding inside the button */
+	border: none;
+	border-radius: 4px; /* Rounded corners for buttons */
+	cursor: pointer; /* Pointer cursor on hover */
+	font-size: 14px;
+	transition: background-color 0.3s ease; /* Smooth transition */
+  }
+  
+  .yes-button {
+	background-color: #ff4d4d; /* Red background for button */
+	color: #fff; /* White text color */
+  }
+
+  .yes-button:hover {
+	background-color: #cc0000; /* Darker red on hover */
+  }
+  
+  .prof-buttons div {
+	margin: 10px 0; /* Space around confirmation text */
+	text-align: center; /* Center align confirmation text */
+  }
+  
+ 
+  
+  .prof-return:hover {
+	background-color: #0056b3; /* Darker blue on hover */
+  }
+
+  .prof-header {
+	font-size:16px;
+	font-weight: bold;
+	display: flex;
+	justify-content: space-between;  /* Place items on far ends */
+	align-items: center;             /* Center items vertically */
+	width: 100%;  /* Ensure header stretches across the full width */
+  }
+
+  .big-button {
+	transition: background-color 0.3s ease; /* Smooth transition */
+  }
+  .big-button:hover {
+background-color: lightgray;
+  }
+
+  button {
+	transition: background-color 0.3s ease; /* Smooth transition */
+  }
+
+  .warning-message {
+	font-size:14px;
+  }
+
+  .bottom-links {
+
+	display: flex;
+	justify-content: space-between;  /* Place items on far ends */
+	align-items: center;             /* Center items vertically */
+	width: 100%;  /* Ensure header stretches across the full width */
+  
+
+	
+  }
+
+  .bottom-links button {
+	background-color: transparent; /* No background */
+	color: #007bff; /* Blue text color */
+	border: none; /* No border */
+	cursor: pointer; /* Pointer cursor on hover */
+	font-size: 14px; /* Font size for the link button */
+	text-decoration: underline; /* Underline text */
+	margin-top:20px;
+  }
+
+  .big-container button {
+	font-size: 14px;
+  }
+
+  .bottom-links button:hover {
+	color: #0056b3; /* Darker blue on hover */
+  }

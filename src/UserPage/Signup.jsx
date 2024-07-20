@@ -17,7 +17,8 @@ function Form({ buttonName }) {
 
   const handleSubmit = () => {
     const alrExists = users.findIndex(
-      (user) => user.username === username.current.value
+      (user) =>
+        user.username.toLowerCase() === username.current.value.toLowerCase()
     );
 
     if (username.current.value === "" || password.current.value === "") {
@@ -47,7 +48,7 @@ function Form({ buttonName }) {
 
   return (
     <div className="user-container">
-      <div className="form-message">Get started with Agenda!</div>
+      <div className="form-message">Get started with Agenda</div>
       <div className="form-container">
         <input
           type="text"
@@ -68,7 +69,7 @@ function Form({ buttonName }) {
         </button>
         <div className="go-to">
           <div>Already have an account?</div>
-          <button onClick={goToLogin}>Login here</button>
+          <button onClick={goToLogin}>Sign in here</button>
         </div>
       </div>
     </div>

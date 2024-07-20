@@ -1,11 +1,12 @@
 import Month from "./components/Month";
 import { useState, useEffect } from "react";
 import "./Calendar.css";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import userService from "../services/users";
 
 function Calendar() {
   const location = useLocation();
+  const navigate = useNavigate();
 
   const { user: initialUser } = location.state || {};
   const { user: { id } = {} } = location.state || {}; // Extract id from location.state.user
@@ -24,6 +25,10 @@ function Calendar() {
   const jumpMonth = (offset) => {
     const newDate = new Date(date.getFullYear(), date.getMonth() + offset, 1);
     setDate(newDate);
+  };
+
+  const goToProf = () => {
+    navigate("/profile", { state: { user: user } });
   };
 
   let monthName;
@@ -71,6 +76,12 @@ function Calendar() {
 
   return (
     <div className="container">
+      <button onClick={goToProf} className="cal-prof">
+        <img
+          className="cal-prof"
+          src="https://cdn-icons-png.freepik.com/512/2893/2893421.png"
+        ></img>
+      </button>
       <div className="title">Agenda</div>
       <div className="header">
         <div className="month-year">
