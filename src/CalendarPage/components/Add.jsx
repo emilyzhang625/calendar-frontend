@@ -8,7 +8,7 @@ function Add({ year, month, day, user, setUser }) {
   const nameInput = useRef(null);
 
   const handleSubmit = () => {
-    if (nameInput.current.value === "") {
+    if (nameInput.current.value.trim().length === 0) {
       window.alert("Please input a name for this event.");
     } else {
       const newItem = {

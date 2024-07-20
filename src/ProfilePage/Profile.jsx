@@ -23,7 +23,7 @@ function Profile() {
   }, []);
 
   const changeUsername = () => {
-    if (username.current.value === "") {
+    if (username.current.value.trim().length === 0) {
       window.alert("Please input a username.");
     } else if (
       username.current.value.toLowerCase() === curr.username.toLowerCase()
@@ -48,7 +48,7 @@ function Profile() {
   };
 
   const changePassword = () => {
-    if (password.current.value === "") {
+    if (password.current.value.trim().length === 0) {
       window.alert("Please input a password.");
     } else if (password.current.value === curr.password) {
       window.alert(

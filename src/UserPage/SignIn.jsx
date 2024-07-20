@@ -20,7 +20,10 @@ function SignIn() {
         user.password === password.current.value
     );
 
-    if (username.current.value === "" || password.current.value === "") {
+    if (
+      username.current.value.trim().length === 0 ||
+      password.current.value.trim().length === 0
+    ) {
       window.alert("Please fill out all fields.");
     } else if (index === -1) {
       window.alert("Invalid username or password, please try again.");

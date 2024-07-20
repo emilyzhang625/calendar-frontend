@@ -21,7 +21,10 @@ function SignUp() {
         user.username.toLowerCase() === username.current.value.toLowerCase()
     );
 
-    if (username.current.value === "" || password.current.value === "") {
+    if (
+      username.current.value.trim().length === 0 ||
+      password.current.value.trim().length === 0
+    ) {
       window.alert("Please fill out all fields.");
     } else if (alrExists !== -1) {
       window.alert("Username already exists, please pick a different one.");
