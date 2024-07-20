@@ -1,24 +1,26 @@
-import { useLocation, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { useEffect, useRef, useState } from "react";
 import userService from "../services/users";
 import "./Profile.css";
 
 function Profile() {
-  const location = useLocation();
   const navigate = useNavigate();
+  const person = JSON.parse(localStorage.getItem("curr"));
+
   const username = useRef(null);
   const password = useRef(null);
 
-  const { user: initialUser } = location.state || {};
-  const [curr, setCurr] = useState(initialUser);
+  const [curr, setCurr] = useState(person);
   const [users, setUsers] = useState([]);
   const [actualDel, setActualDel] = useState(false);
   const [actualClear, setActualClear] = useState(false);
 
   useEffect(() => {
-    setCurr(initialUser);
+    userService
+      .getCurr(person.id)
+      .then((returnedUser) => setCurr(returnedUser));
     userService.getUsers().then((returnedUsers) => setUsers(returnedUsers));
-  }, [initialUser]);
+  }, []);
 
   const changeUsername = () => {
     if (username.current.value === "") {
@@ -76,7 +78,7 @@ function Profile() {
   };
 
   const goToCal = () => {
-    navigate("/calendar", { state: { user: curr } });
+    navigate("/calendar");
   };
 
   const goToUser = () => {

@@ -25,7 +25,8 @@ function SignIn() {
     } else if (index === -1) {
       window.alert("Invalid username or password, please try again.");
     } else {
-      navigate("/calendar", { state: { user: users[index] } });
+      localStorage.setItem("curr", JSON.stringify(users[index]));
+      navigate("/calendar");
       username.current.value = "";
       password.current.value = "";
     }

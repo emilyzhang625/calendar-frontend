@@ -4,7 +4,7 @@ import userService from "../services/users";
 import { useNavigate } from "react-router-dom";
 import "./Form.css";
 
-function Form({ buttonName }) {
+function SignUp() {
   const navigate = useNavigate();
 
   const [users, setUsers] = useState([]);
@@ -34,8 +34,9 @@ function Form({ buttonName }) {
 
       userService.addUser(newUser).then((returnedUser) => {
         setUsers([...users, returnedUser]);
+        localStorage.setItem("curr", JSON.stringify(returnedUser));
 
-        navigate("/calendar", { state: { user: returnedUser } });
+        navigate("/calendar");
         username.current.value = "";
         password.current.value = "";
       });
@@ -76,4 +77,4 @@ function Form({ buttonName }) {
   );
 }
 
-export default Form;
+export default SignUp;

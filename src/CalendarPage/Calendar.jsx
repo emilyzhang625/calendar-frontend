@@ -1,22 +1,18 @@
 import Month from "./components/Month";
 import { useState, useEffect } from "react";
 import "./Calendar.css";
-import { useLocation, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import userService from "../services/users";
 
 function Calendar() {
-  const location = useLocation();
   const navigate = useNavigate();
-
-  const { user: initialUser } = location.state || {};
-  const { user: { id } = {} } = location.state || {}; // Extract id from location.state.user
+  const curr = JSON.parse(localStorage.getItem("curr"));
 
   const [date, setDate] = useState(new Date());
-  const [user, setUser] = useState(initialUser);
-
+  const [user, setUser] = useState(curr);
   useEffect(() => {
-    userService.getCurr(id).then((returnedUser) => setUser(returnedUser));
-  }, [id]);
+    userService.getCurr(curr.id).then((returnedUser) => setUser(returnedUser));
+  }, []);
 
   const jumpToday = () => {
     setDate(new Date());
@@ -28,7 +24,7 @@ function Calendar() {
   };
 
   const goToProf = () => {
-    navigate("/profile", { state: { user: user } });
+    navigate("/profile");
   };
 
   let monthName;
