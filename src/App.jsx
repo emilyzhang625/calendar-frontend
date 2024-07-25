@@ -2,7 +2,7 @@ import CalendarPage from "./CalendarPage/Calendar";
 import SignUpPage from "./UserPage/Signup";
 import SignInPage from "./UserPage/SignIn";
 import ProfilePage from "./ProfilePage/Profile";
-import { BrowserRouter as Router, Route, Routes, Link } from "react-router-dom";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
 function App() {
   return (
