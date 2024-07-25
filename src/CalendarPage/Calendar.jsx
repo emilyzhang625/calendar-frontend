@@ -78,7 +78,7 @@ function Calendar() {
           src="https://cdn-icons-png.freepik.com/512/2893/2893421.png"
         ></img>
       </button>
-      <div className="title">Agenda</div>
+      <div className="title">Calendar</div>
       <div className="header">
         <div className="month-year">
           {monthName} {date.getFullYear()}
