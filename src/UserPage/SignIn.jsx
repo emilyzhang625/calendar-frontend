@@ -29,7 +29,7 @@ function SignIn() {
       window.alert("Invalid username or password, please try again.");
     } else {
       localStorage.setItem("curr", JSON.stringify(users[index]));
-      navigate("/calendar");
+      navigate("/home");
       username.current.value = "";
       password.current.value = "";
     }

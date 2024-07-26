@@ -39,7 +39,7 @@ function SignUp() {
         setUsers([...users, returnedUser]);
         localStorage.setItem("curr", JSON.stringify(returnedUser));
 
-        navigate("/calendar");
+        navigate("/home");
         username.current.value = "";
         password.current.value = "";
       });

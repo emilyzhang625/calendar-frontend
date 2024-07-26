@@ -86,7 +86,7 @@ function Profile() {
   };
 
   const goToCal = () => {
-    navigate("/calendar");
+    navigate("/home");
   };
 
   const goToUser = () => {
