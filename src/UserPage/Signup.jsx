@@ -52,7 +52,7 @@ function SignUp() {
 
   return (
     <div className="user-container">
-      <div className="form-message">Get started with Agenda</div>
+      <div className="form-message">Get started with Calendar</div>
       <div className="form-container">
         <input
           type="text"

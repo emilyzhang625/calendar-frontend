@@ -41,7 +41,7 @@ function SignIn() {
 
   return (
     <div className="user-container">
-      <div className="form-message">Welcome back to Agenda</div>
+      <div className="form-message">Welcome back to Calendar</div>
       <div className="form-container">
         <input
           type="text"
